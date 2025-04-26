@@ -1,0 +1,37 @@
+<ion-content [fullscreen]="true">
+  <div class="centered">
+    <div class="nav"><img src="assets/img/logo.png" alt="Nice à Vélo"></div>
+    <h1 class="title">Quelle distance avez-vous parcourue {{ lowerCaseTransport }} pour venir ici?</h1>
+    <h2 class="subtitle">Glissez le curseur pour sélectionner la distance ou touchez la barre.</h2>
+    
+    <div class="slider-wrapper">
+      <div class="slider-container">
+        <input type="range" id="distanceSlider" min="0" max="100" step="1" value="0" 
+               (input)="onSliderChange($event)">
+        <div class="ticks">
+          <span class="tick" [class.active]="sliderValue >= 0">
+            <div class="tick-marker"></div>500 m
+          </span>
+          <span class="tick" [class.active]="sliderValue >= 20">
+            <div class="tick-marker"></div>1 km
+          </span>
+          <span class="tick" [class.active]="sliderValue >= 40">
+            <div class="tick-marker"></div>2 km
+          </span>
+          <span class="tick" [class.active]="sliderValue >= 60">
+            <div class="tick-marker"></div>5 km
+          </span>
+          <span class="tick" [class.active]="sliderValue >= 80">
+            <div class="tick-marker"></div>10 km
+          </span>
+          <span class="tick" [class.active]="sliderValue >= 100">
+            <div class="tick-marker"></div>+10 km
+          </span>
+        </div>
+      </div>
+    </div>
+    <button type="button" (click)="submitDistance()">Valider</button>
+</div>
+</ion-content>
+
+

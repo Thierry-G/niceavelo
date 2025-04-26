@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="admin"><img src="assets/img/logo.png" alt="Nice à Vélo" (click)="exit()"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div *ngIf="!isAuthenticated" class="auth-container">
+    <h1 class="subtitle">Administration</h1>
+    <ion-item>
+      <ion-label position="fixed" class="bold-label">Utilisateur</ion-label>
+      <ion-input [(ngModel)]="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed" class="bold-label">Mot de passe</ion-label>
+      <ion-input type="password" [(ngModel)]="password" clearInput="true"></ion-input>
+    </ion-item>
+    <div class="button-container">
+      <ion-button (click)="authenticate()">Se connecter</ion-button> <ion-button (click)="exit()"
+        fill="outline">Quitter</ion-button>
+    </div>
+  </div>
+
+  <div *ngIf="isAuthenticated" class="admin-actions">
+    <h1 class="subtitle">Administration</h1>
+    <p class="uuid">L'identifiant unique de cet appareil est: <br><b>{{ deviceID }}</b></p>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Données collectées</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Nombre de participants: {{ getDataSize() }}</p>
+        <p id="reco">Après l'exportation des données, une réinitialisation des donneées est recommandée!</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Exporter les données</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <h2>Bluetooth sur PC et Android.</h2>
+        <p><b>Windows</b>Activer le bluetooth, puis click droit sur l'icone et recevoir un fichier.</p>
+        <p><b>Android Quick Share</b><br>Dans les paramètres Quick Share: Qui peut partager avec vous, choisir: Tout le
+          monde.</p>
+        <p><b>IOS Bluetooth</b><br>Non testé sur Macbook, Ipad s'atttend à un fichier html et refuse le transfert.</p>
+        <h2>Sur cet appareil</h2>
+        <p>Une copie de secours, restera stockée sur cet appareil <b>que le transfert ait réussi ou non</b>.</p>
+        <p>Vous retrouverez dans Documents chaque nouvel enregistrement. Ceux ci sont indexés (pour faciliter le
+          traitement des données):<br>
+          <code>NiceaVelo_<span style="color: rgb(255,215,0)">ID unique de l'appareil</span>_<span style="color: rgb(255,215,0)">date en Javascript</span>.json</code>
+        </p>
+      </ion-card-content>
+      <ion-button class="action-btn in-card" [disabled]="isEmpty" expand="block" (touch)="exportAndShare()"
+        (click)="exportAndShare()" color="primary">
+        <ion-icon name="download" slot="start"></ion-icon>
+        Exporter les données
+      </ion-button>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Réinitialiser</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Réinitialise le stockage local. Il est conseillé de l'effectuer après un export, si le nombre de participant est supérieur à <b>400</b>.</p>
+      </ion-card-content>
+      <ion-button class="action-btn in-card" [disabled]="isEmpty" expand="block" (touch)="clearData()" (click)="clearData()"
+        color="danger">
+        <ion-icon name="trash" slot="start"></ion-icon>
+        Réinitialiser les données
+      </ion-button>
+    </ion-card>
+
+    <ion-button expand="block" class="quit" (click)="exit()" fill="outline">Quitter</ion-button>
+  </div>
+
+</ion-content>

@@ -1,0 +1,12 @@
+<ion-content [fullscreen]="true">
+  <div class="centered">
+    <div class="nav"><img src="assets/img/logo.png" alt="Nice à Vélo" (touch)="toAdmin()" (click)="toAdmin()"></div>
+    <h1 class="title">Comment êtes-vous venus ?</h1>
+    <div class="gallery">
+      <div *ngFor="let item of transports" class="gallery-item" (click)="storeSelection(item)">
+        <img [src]="'assets/img/' + item.image" [alt]="item.title">
+        <span class="gallery-span">{{ item.title }}</span>
+      </div>
+    </div>
+  </div>
+</ion-content>

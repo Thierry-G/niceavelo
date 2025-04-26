@@ -1,0 +1,103 @@
+.auth-container,
+.admin-actions {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.auth-container h1,
+.admin-actions h1 {
+    margin: 1.1rem 0;
+}
+
+.uuid {
+    text-align: center;
+    width: 100%;
+}
+
+#reco {
+    border: 2px solid rgb(197,0,15);
+    background-color: rgb(248,251,181);
+    color: rgb(21,21,21);
+    padding: .96rem;
+    font-size: 16px;
+    font-weight: bold;
+    display: none;
+}
+ion-toolbar {
+    width: 100vw;
+    margin: 0 auto;
+    display: flex;
+}
+
+ion-icon {
+    color: rgb(247, 247, 247);
+}
+
+ion-alert {
+    z-index: 9999 !important;
+}
+
+.admin {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.1rem 0;
+}
+
+.admin img {
+    display: flex;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+}
+
+ion-card {
+    margin-bottom: 0 0 20px 0;
+}
+
+ion-item {
+    margin: 1.1rem 0 0 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.68rem;
+    margin-top: 2.1rem;
+}
+
+code {
+    background-color: rgb(31,31,31);
+    color: rgb(124, 220, 240);
+    padding: 6px 4px;
+    margin: 1.2rem 0;
+}
+
+ion-button {
+    align-items: center;
+    justify-content: center;
+}
+
+.in-card {
+    margin: 0 2.4rem .76rem;
+}
+
+ion-icon {
+    font-size: 1.5em;
+}
+
+.quit {
+    margin-top: 2.1rem;
+}
+
+.bold-label {
+    font-weight: bold;
+    /* Optionally adjust the width to suit your design */
+    min-width: 150px;
+}
+
+.tooMany {
+    display: inline-block;
+}
